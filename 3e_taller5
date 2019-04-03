@@ -1,0 +1,13 @@
+// Encontrar el elemento n de una lista, 
+// Punto 3.e) del taller 5
+def length(l: List[Int]) : Int = l match{
+  case Nil => 0
+  case h::t => 1 + length(t)
+}
+
+def nth(l: List[Int], n: Int): Int = {
+  require(n < length(l))
+  l match{
+    case x::t => { if(n == 0) x else nth(t, n - 1) }
+  }
+}
