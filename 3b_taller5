@@ -1,0 +1,15 @@
+// Determinar si hay repetidos dentro de una lista, 
+// Punto 3.b) del taller 5
+def aux(l: List[Int], a: Int): Boolean = {
+  l match{
+    case Nil => false
+    case x::t => { if(x == a) true else aux(t, a) }
+  }
+}
+
+def tieneRepetidos(l: List[Int]): Boolean = {
+  l match{
+    case Nil => false
+    case x::t => { if(aux(t, x)) true else tieneRepetidos(t) }
+  }
+}
