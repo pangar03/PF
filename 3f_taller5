@@ -1,0 +1,15 @@
+// Punto 3f
+
+def inversiones(l1: List[Int]): Int = {
+	def contarInv(l2: List[Int], elem: Int): Int = {
+    l2 match{
+      case Nil => 0
+      case h::t => if(h < elem) 1 + contarInv(t,elem) else contarInv(t,elem)
+    }
+  }
+	
+  l1 match{
+    case Nil => 0
+    case h::t => contarInv(t, h) + inversiones(t)
+  }
+}
