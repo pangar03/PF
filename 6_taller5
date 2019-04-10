@@ -1,0 +1,13 @@
+// Punto 6
+
+def calcularTerms(n: Int): List[(Int, Int)] = {
+  def aux(count: Int, a: Int, b: Int): List[(Int, Int)] = {
+    count match{
+      case 0 => Nil
+      case _ => (a+2, b+3)::aux(count - 1, a+2, b+3)
+    }
+  }
+  
+  (0,0)::aux(n - 1, 0, 0) //Si los n terminos son sin contar el (0,0) solo se le elimina el -1 en n - 1 del parametor
+}
+
