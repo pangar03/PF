@@ -1,0 +1,19 @@
+// Punto 5f 
+
+def inversiones(l1: List[Int]): Int = {
+  def aux(l: List[Int], inv: Int): Int = {
+      def contarInv(l2: List[Int], elem: Int, count: Int): Int = {
+        l2 match{
+          case Nil => count
+          case h::t => if(h < elem) contarInv(t,elem,count + 1) else contarInv(t,elem,count)
+        }
+      }
+      l match{
+        case Nil => inv
+        case h::t => aux(t,contarInv(t,h,inv))
+    }
+  }
+  
+  aux(l1, 0)
+}
+
