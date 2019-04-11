@@ -4,6 +4,6 @@ def menorLista(l1: List[String], l2: List[String]): Boolean = {
 	require (l1.length == l2.length)
   (l1, l2) match {
     case (Nil, Nil) => true
-    case (h::t, k::m) => if(h > k) false else true && menorLista(t, m)
+    case (h::t, k::m) => if(h > k) false else true && menorLista(t, m) //Con el true && menorLista(t, m) Ya no es recursion de cola!!!
   }
 }
