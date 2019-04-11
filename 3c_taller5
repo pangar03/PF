@@ -1,0 +1,15 @@
+// Punto 3c
+
+def maximaOcurrencia(l1: List[Int]): Int = {
+  def aux(l: List[Int], elem: Int): Int = {
+    l match{
+      case Nil => 0
+      case h::t => if(h == elem) 1 + aux(t, elem) else aux(t, elem) 
+    }
+  }
+  
+  l1 match{
+    case Nil => return 0
+    case h::t =>{val tmp = aux(h::t, h); if(tmp < aux(t, t.head)) t.head else h}
+  }
+}
